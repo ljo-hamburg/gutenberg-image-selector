@@ -9,9 +9,14 @@
     "lint": "eslint src",
     "prepublish": "npm run build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "wordpress",
+    "gutenberg",
+    "react",
+    "media"
+  ],
+  "author": "Kim Wittenburg <codello@wittenburg.kim>",
+  "license": "MIT",
   "dependencies": {
     "@wordpress/block-editor": "^4.0.0",
     "@wordpress/components": "^9.7.0",
