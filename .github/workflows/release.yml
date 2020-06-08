@@ -1,0 +1,38 @@
+name: Build
+on:
+  push:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    name: Build Package
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: Install Dependencies
+        run: npm ci
+      - run: npm build
+
+  publish:
+    name: Publish Package
+    runs-on: ubuntu-latest
+    needs: build
+    if: ${{ github.event_name == 'release' && ! github.event.release.draft }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+          registry-url: https://registry.npmjs.org/
+      - name: Install Dependencies
+        run: npm ci
+      - name: Publish Package
+        run: npm publish --access=public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
