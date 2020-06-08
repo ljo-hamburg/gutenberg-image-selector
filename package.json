@@ -1,6 +1,6 @@
 {
   "name": "@ljo-hamburg/gutenberg-image-selector",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Image Selector Control for Gutenberg",
   "module": "dist/index.js",
   "scripts": {
