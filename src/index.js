@@ -28,7 +28,7 @@ export default function ImageSelector({
     (select) => {
       return select("core").getMedia(imageID);
     },
-    [imageID]
+    [imageID],
   );
   return (
     <>
